@@ -6,11 +6,14 @@ import org.example.factory_builder_singleton.classi_astratte.factory_concreta.Fa
 import org.example.factory_builder_singleton.classi_astratte.factory_concreta.FactoryOrso;
 import org.example.factory_builder_singleton.classi_concrete.Aquila;
 import org.example.factory_builder_singleton.classi_concrete.Orso;
+import org.example.factory_builder_singleton.store.Store;
 import org.example.factory_builder_singleton.webScraping.WebScraper;
 
 public class Main1 {
 
     public static void main(String[] args) {
+        // instanzio lo store singleton
+        Store store = Store.getInstance();
 
         // bean e popolamento dinamico dei bean tramite reflection e web scraping
         BeanOrso beanOrso = new BeanOrso();
@@ -34,5 +37,12 @@ public class Main1 {
         FactoryOrso factoryOrso = new FactoryOrso();
         Orso orso = factoryOrso.crea(beanOrso);
         System.out.println(orso.toString());
+
+        // aggiungo elementi allo store
+        store.addToStore(orso);
+        store.addToStore(aquila);
+
+        // mostro il contenuto dello store
+        store.checkStore();
     }
 }
