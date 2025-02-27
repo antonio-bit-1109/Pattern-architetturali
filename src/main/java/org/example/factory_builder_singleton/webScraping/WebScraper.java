@@ -22,7 +22,7 @@ public class WebScraper<B extends Bean> {
     private Document doc;
     private final List<String> listaStringhe_Scraped = new ArrayList<>();
 
-    // pipeline che gestisce il in che ordine devono essere chiamati i metodi
+    // pipeline che gestisce il in che ordine devono essere chiamati i metodi --FACADE METHOD
     public void initializeMethod(B bean) {
         try {
             this.ConnectToPage();
